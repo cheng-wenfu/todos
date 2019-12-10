@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todos</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <link href="./index.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id='root'>
+      <h2>hello,  welcome to  todos!</h2>
+      <input type="text" id="todoText" name="todotext" v-model="value">
+      <input type="submit" value="添加" v-on:click="addTodo">
+      <div class="todos" v-for="(todo, index) in todos">
+        <todo-list v-bind:todo-text="todo" v-bind:index="index" >
+            <button type="button" v-on:click=" () => deleteTodo(index)">删除</button>
+        </todo-list>
+      </div>
+    </div>
+  </body>
+  <script>
+    Vue.component('todo-list',{
+      props: ['todoText', 'index'],
+      template: `
+        <div class="todo-list" >
+          <p>{{index}} - {{todoText}}</p>
+          <slot></slot>
+        </div>
+        `
+    })
+
+var app = new Vue({
+  el: "#root",
+  data: {
+    value: "",
+    todos: []
+  },
+  methods: {
+    addTodo: function() {
+      this.todos.push(this.value);
+      this.value = "";
+    },
+    deleteTodo: function(index) {
+      this.todos.splice(index, 1)
+    }
+  }
+})
+  </script>
+</html>
