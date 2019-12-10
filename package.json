@@ -1,0 +1,23 @@
+{
+  "name": "todos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheng-wenfu/todos.git"
+  },
+  "keywords": [],
+  "author": "chengwenfu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cheng-wenfu/todos/issues"
+  },
+  "homepage": "https://github.com/cheng-wenfu/todos#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}
